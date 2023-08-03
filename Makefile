@@ -1,5 +1,9 @@
+FILES=main.c lib/snake.c
+FLAGS=-lSDL2 -lm
+EXE=csnake
+
 build:
-	gcc main.c -o csnake -lSDL2
+	gcc ${FILES} -o ${EXE} ${FLAGS}
 
 run: build
-	./csnake
+	./${EXE}
