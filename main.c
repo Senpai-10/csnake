@@ -2,6 +2,9 @@
 #include <SDL2/SDL.h>
 /* #include <SDL2/SDL2_gfxPrimitives.h> */
 
+const int WIDTH = 500;
+const int HEIGHT = 500;
+
 int quit = 0;
 
 int main(void) {
@@ -10,7 +13,7 @@ int main(void) {
 
     printf("Initializing SDL... %d\n", SDL_Init(SDL_INIT_VIDEO));
 
-    window = SDL_CreateWindow("Csnake", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 500, 500, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Csnake", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, 0);
 
     SDL_Event event;
