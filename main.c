@@ -2,8 +2,8 @@
 #include <SDL2/SDL.h>
 /* #include <SDL2/SDL2_gfxPrimitives.h> */
 
-const int WIDTH = 500;
-const int HEIGHT = 500;
+const int WIDTH = 800;
+const int HEIGHT = 800;
 
 int quit = 0;
 
