@@ -31,7 +31,6 @@ int main(void) {
         handle_movement(&snake);
 
         if (check_collisions(&snake, WIDTH, HEIGHT)) {
-            free(snake.tail);
             break;
         }
 
@@ -59,21 +58,7 @@ int main(void) {
             else if (state[SDL_SCANCODE_RIGHT] && snake.direction != DIRECTION_LEFT) {
                 snake.direction = DIRECTION_RIGHT;
             }
-            else if (state[SDL_SCANCODE_E]) {
-                snake.size += 1;
-                struct Tail *temp = realloc(snake.tail, (snake.size * sizeof(struct Tail)));
-
-                if (temp != NULL) {
-                    snake.tail = temp;
-                    struct Tail new_tail = {snake.pos.x, snake.pos.y};
-                    snake.tail[snake.size-1] = new_tail;
-                    printf("SUCCESS\n");
-                } else {
-                    printf("Failed to add tail\n");
-                }
-            }
         }
-
 
         SDL_Delay(120);
     }
