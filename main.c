@@ -60,7 +60,7 @@ int main(void) {
             }
         }
 
-        SDL_Delay(120);
+        SDL_Delay(60);
     }
 
     SDL_DestroyRenderer(renderer);
