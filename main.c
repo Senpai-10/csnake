@@ -4,6 +4,7 @@
 /* #include <SDL2/SDL2_gfxPrimitives.h> */
 #include "lib/snake.h"
 #include "lib/consts.h"
+#include "lib/food.h"
 
 int quit = 0;
 
@@ -17,13 +18,17 @@ int main(void) {
     renderer = SDL_CreateRenderer(window, -1, 0);
 
     struct Snake snake;
+    struct Food food;
 
     init_game(&snake);
+    generate_food_pos(&food);
 
     SDL_Event event;
     while (!quit) {
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
+
+        render_food(&food, renderer);
 
         render_snake(renderer, &snake);
         handle_movement(&snake);
