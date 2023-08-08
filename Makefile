@@ -1,4 +1,4 @@
-FILES=main.c lib/snake.c
+FILES=main.c lib/snake.c lib/food.c
 FLAGS=-lSDL2 -lm
 EXE=csnake
 
