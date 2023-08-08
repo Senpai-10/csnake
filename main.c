@@ -3,9 +3,7 @@
 #include <SDL2/SDL_render.h>
 /* #include <SDL2/SDL2_gfxPrimitives.h> */
 #include "lib/snake.h"
-
-const int WIDTH = 800;
-const int HEIGHT = 800;
+#include "lib/consts.h"
 
 int quit = 0;
 
@@ -15,12 +13,12 @@ int main(void) {
 
     printf("Initializing SDL... %d\n", SDL_Init(SDL_INIT_VIDEO));
 
-    window = SDL_CreateWindow("Csnake", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Csnake", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, 0);
 
     struct Snake snake;
 
-    init_game(&snake, WIDTH, HEIGHT);
+    init_game(&snake);
 
     SDL_Event event;
     while (!quit) {
@@ -30,7 +28,7 @@ int main(void) {
         render_snake(renderer, &snake);
         handle_movement(&snake);
 
-        if (check_collisions(&snake, WIDTH, HEIGHT)) {
+        if (check_collisions(&snake)) {
             break;
         }
 

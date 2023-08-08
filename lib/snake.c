@@ -4,17 +4,18 @@
 #include <SDL2/SDL_render.h>
 #include <math.h>
 #include "snake.h"
+#include "consts.h"
 
 double distance(int x1, int y1, int x2, int y2) {
     return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 }
 
-void init_game(struct Snake *snake, int window_width, int window_height) {
+void init_game(struct Snake *snake) {
     printf("Initializing the game\n");
     snake->width = 20;
     snake->height = 20;
-    snake->pos.x = (window_width / 2) - snake->width;
-    snake->pos.y = (window_height / 2) - snake->height;
+    snake->pos.x = (WINDOW_WIDTH / 2) - snake->width;
+    snake->pos.y = (WINDOW_HEIGHT / 2) - snake->height;
     snake->tail = malloc(sizeof(struct Tail));
     snake->size = 0;
     snake->direction = DIRECTION_LEFT;
@@ -62,8 +63,8 @@ void handle_movement(struct Snake * snake) {
     }
 }
 
-int check_collisions(struct Snake *snake, int window_width, int window_height) {
-    if (snake->pos.x == 0 || snake->pos.y == 0 || snake->pos.x == window_width || snake->pos.y == window_height) {
+int check_collisions(struct Snake *snake) {
+    if (snake->pos.x == 0 || snake->pos.y == 0 || snake->pos.x == WINDOW_WIDTH || snake->pos.y == WINDOW_HEIGHT) {
         return 1;
     }
 

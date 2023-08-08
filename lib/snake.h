@@ -32,9 +32,9 @@ struct Snake {
     struct Tail *tail;
 };
 
-void init_game(struct Snake *snake, int window_width, int window_height);
+void init_game(struct Snake *snake);
 void render_snake(struct SDL_Renderer *renderer, struct Snake *snake);
 void handle_movement(struct Snake *snake);
-int check_collisions(struct Snake *snake, int window_width, int window_height);
+int check_collisions(struct Snake *snake);
 
 #endif // !SNAKE_H
