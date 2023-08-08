@@ -2,13 +2,9 @@
 #include <stdlib.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_render.h>
-#include <math.h>
 #include "snake.h"
 #include "consts.h"
-
-double distance(int x1, int y1, int x2, int y2) {
-    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
-}
+#include "distance.h"
 
 void init_game(struct Snake *snake) {
     printf("Initializing the game\n");

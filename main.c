@@ -32,6 +32,7 @@ int main(void) {
 
         render_snake(renderer, &snake);
         handle_movement(&snake);
+        check_eat_food(&snake, &food);
 
         if (check_collisions(&snake)) {
             break;
@@ -63,7 +64,7 @@ int main(void) {
             }
         }
 
-        SDL_Delay(60);
+        SDL_Delay(120);
     }
 
     SDL_DestroyRenderer(renderer);
